@@ -1,11 +1,13 @@
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
+
 class TasksBack4appModel {
-  List<TaskBack4appModel> tasks = [];
+  RxList<TaskBack4appModel> tasks = <TaskBack4appModel>[].obs;
 
   TasksBack4appModel(this.tasks);
 
   TasksBack4appModel.fromJson(Map<String, dynamic> json) {
     if (json['results'] != null) {
-      tasks = <TaskBack4appModel>[];
+      tasks = <TaskBack4appModel>[].obs;
       json['results'].forEach((v) {
         tasks.add(TaskBack4appModel.fromJson(v));
       });

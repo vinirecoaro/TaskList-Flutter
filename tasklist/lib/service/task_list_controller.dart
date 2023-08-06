@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import '../model/task_model.dart';
 
 class TaskListController extends GetxController {
-  var _justNotConcluded = false.obs;
+  final _justNotConcluded = false.obs;
 
   bool get justNotConcluded => _justNotConcluded.value;
 
@@ -10,7 +10,7 @@ class TaskListController extends GetxController {
     _justNotConcluded.value = value;
   }
 
-  RxList<Task> _tasks = <Task>[].obs;
+  final RxList<Task> _tasks = <Task>[].obs;
 
   List<Task> get tasks => _justNotConcluded.value
       ? _tasks.where((element) => !element.concluded).toList().obs
